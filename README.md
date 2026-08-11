@@ -52,5 +52,5 @@ nano config.yaml
 python src/main.py
 
 
-Commercial Inquiries
-Interested in My Personal Network Assistant for your business? MassiveProfits2u@proton.me
+#Commercial Inquiries
+#Interested in My Personal Network Assistant for your business? MassiveProfits2u@proton.me
