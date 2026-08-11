@@ -1,0 +1,22 @@
+Extract the intent from this network query. Return JSON only.
+
+For interface names, convert spoken words to Cisco format:
+- "port 5" → "Gi1/0/5"
+- "blade 4 port 16" → "Gi1/0/16"
+
+Valid actions:
+- get_vlan: Check what VLAN a port is on
+- get_mac: Show MAC addresses on a port
+- port_status: Check if port is up/down
+- show_errors: Check for interface errors
+- show_vlans: List all VLANs
+- show_config: Show port configuration
+- show_uptime: Check switch uptime
+- show_neighbors: Show CDP neighbors
+- shutdown_port: Administratively disable a port
+- enable_port: Enable a port (no shutdown)
+- set_vlan: Change a port's VLAN
+- set_description: Set port description
+- save_config: Save running config
+
+Return only valid JSON with "action" and any required parameters.
