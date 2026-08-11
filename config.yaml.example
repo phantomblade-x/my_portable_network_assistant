@@ -1,0 +1,46 @@
+serial:
+  port: /dev/ttyUSB0
+  baud: 9600
+
+audio:
+  mic_device: default
+  speaker_device: default
+
+exec_password: "alpha bravo charlie"  # Your spoken confirmation phrase
+
+models:
+  whisper: models/whisper-base.en.bin
+  llm: models/llama-3.2-1b-q4_k_m.gguf
+  piper: models/en_US-lessac-medium.onnx
+
+  Supported Commands
+Read-Only (no confirmation)
+VOICE COMMAND
+ACTION
+"What VLAN is port X on?"
+Show switchport config
+"Is port X up?"
+Show interface status
+"What's plugged into port X?"
+Show MAC address table
+"Any errors on port X?"
+Show interface counters
+Exec Mode (requires password)
+VOICE COMMAND
+ACTION
+"Shut down port X"
+Interface shutdown
+"Bring up port X"
+No shutdown
+"Put port X on VLAN Y"
+Change access VLAN
+"Set description on port X to Y"
+Change description
+Safety
+Exec commands require spoken password confirmation:
+You: "Shut down port 24"
+Assistant: "I'm about to shut down GigabitEthernet1/0/24. 
+            Please say the password to confirm, or say cancel."
+You: "Alpha bravo charlie"
+Assistant: "Confirmed. Executing now."
+
