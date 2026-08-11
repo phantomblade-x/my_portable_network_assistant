@@ -110,7 +110,7 @@ Valid actions: {actions_list}
 For interface names, convert spoken words to Cisco format:
 - "port 5" or "port five" → "Gi1/0/5"
 - "gigabit 1/0/5" → "Gi1/0/5"
-- "blade 4 port 16" → "Gi1/0/16" (assume blade maps to port numbering)
+- "blade 4 port 16" → "Gi4/0/16" (assume blade maps to port numbering)
 
 Examples:
 - "what vlan is port 16 on" → {{"action": "get_vlan", "interface": "Gi1/0/16"}}
