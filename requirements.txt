@@ -2,6 +2,8 @@
 pyserial>=3.5
 
 # Audio
+libportaudio2
+portaudio19-dev
 sounddevice>=0.4.6
 python3-numpy>=2.2.4
 
