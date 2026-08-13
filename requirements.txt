@@ -1,19 +1,19 @@
-#Serial
+# Serial
 pyserial>=3.5
 
-#Audio
+# Audio
 sounddevice>=0.4.6
 numpy>=1.24.0,<2.0.0
 
-#STT - Whisper
+# STT - Whisper
 whispercpp>=0.0.17
 
-#TTS - Piper
+# TTS - Piper
 piper-tts>=1.2.0
 
-#LLM
+# LLM
 llama-cpp-python>=0.2.50
 
-#Utils
+# Utils
 pyyaml>=6.0
 pydantic>=2.0
