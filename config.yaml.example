@@ -12,8 +12,8 @@ serial:
 
 # Audio devices (use 'arecord -l' and 'aplay -l' to find)
 audio:
-  mic_device: default
-  speaker_device: default
+  mic_device: 2
+  speaker_device: 2
   sample_rate: 16000
 
 # Spoken password for exec commands
@@ -25,7 +25,7 @@ wake_word: "hey cisco"
 
 # Model paths (relative to project root)
 models:
-  whisper: models/whisper-base.en.bin
+  whisper: base.en
   llm: models/llama-3.2-1b-q4_k_m.gguf
   piper_model: models/en_US-lessac-medium.onnx
   piper_config: models/en_US-lessac-medium.onnx.json
