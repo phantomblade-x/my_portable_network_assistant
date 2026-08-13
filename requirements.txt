@@ -3,7 +3,7 @@ pyserial>=3.5
 
 # Audio
 sounddevice>=0.4.6
-numpy>=1.24.0,<2.0.0
+python3-numpy>=2.2.4
 
 # STT - Whisper
 whispercpp>=0.0.17
