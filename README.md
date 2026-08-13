@@ -41,11 +41,14 @@ cd cisco-voice-assistant
 chmod +x setup.sh
 ./setup.sh
 
+# Depending on the hardware and the resources available, this can take a while. 
+
 # Copy and edit config
 cp config.yaml.example config.yaml
 nano config.yaml
 
 # Download models
+chmod +x download_models.sh
 ./download_models.sh
 
 # Run it
