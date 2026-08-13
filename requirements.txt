@@ -8,7 +8,7 @@ sounddevice>=0.4.6
 python3-numpy>=2.2.4
 
 # STT - Whisper
-whispercpp>=0.0.17
+pywhispercpp>=1.2.0
 
 # TTS - Piper
 piper-tts>=1.2.0
