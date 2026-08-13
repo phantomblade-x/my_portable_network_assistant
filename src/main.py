@@ -27,8 +27,12 @@ def main():
     config = load_config()
     
     # Initialize components
-    print("  Loading Whisper STT...")
-    stt = WhisperSTT(config['models']['whisper'])
+print("  Loading Whisper STT...")
+stt = WhisperSTT(
+    config['models']['whisper'],
+    sample_rate=config['audio']['sample_rate'],
+    mic_device=config['audio'].get('mic_device')
+)
     
     print("  Loading Piper TTS...")
     tts = PiperTTS(
