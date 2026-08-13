@@ -34,14 +34,12 @@ A portable, voice-activated network assistant that runs on a Raspberry Pi 4B. Ta
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/cisco-voice-assistant.git
-cd cisco-voice-assistant
+git clone https://github.com/phantomblade-x/my_portable_network_assistant.git
+cd my_portable_network_assistant
 
 # Run setup script
 chmod +x setup.sh
 ./setup.sh
-
-# Depending on the hardware and the resources available, this can take a while. 
 
 # Copy and edit config
 cp config.yaml.example config.yaml
