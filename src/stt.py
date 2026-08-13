@@ -1,33 +1,27 @@
 """
-Speech-to-Text using Whisper.cpp
+Speech-to-Text using pywhispercpp
 """
 
 import numpy as np
 import sounddevice as sd
-from whispercpp import Whisper
+from pywhispercpp.model import Model
 from typing import Optional
 
 
 class WhisperSTT:
-    def __init__(self, model_path: str, sample_rate: int = 16000):
-        self.whisper = Whisper.from_pretrained(model_path)
+    def __init__(self, model_name: str, sample_rate: int = 16000):
+        # model_name can be: tiny.en, base.en, small.en, etc.
+        # pywhispercpp auto-downloads and caches
+        self.whisper = Model(model_name, n_threads=4)
         self.sample_rate = sample_rate
     
     def listen(self, timeout: Optional[float] = 10, silence_threshold: float = 0.01) -> Optional[str]:
         """
         Record audio and transcribe it.
-        
-        Args:
-            timeout: Max seconds to record (None for indefinite until silence)
-            silence_threshold: RMS threshold to detect silence
-        
-        Returns:
-            Transcribed text or None if nothing detected
         """
         print("🎤 Listening...")
         
-        # Record audio
-        duration = timeout or 30  # Max 30 seconds if no timeout
+        duration = timeout or 30
         audio = sd.rec(
             int(duration * self.sample_rate),
             samplerate=self.sample_rate,
@@ -36,16 +30,14 @@ class WhisperSTT:
         )
         sd.wait()
         
-        # Trim silence from end
         audio = audio.flatten()
-        audio = np.trim_zeros(audio, 'b')
         
-        if len(audio) < self.sample_rate * 0.5:  # Less than 0.5s of audio
+        if len(audio) < self.sample_rate * 0.5:
             return None
         
-        # Transcribe
-        result = self.whisper.transcribe(audio)
-        text = result.strip()
+        # pywhispercpp transcribe returns a list of segments
+        segments = self.whisper.transcribe(audio)
+        text = " ".join([seg.text for seg in segments]).strip()
         
         if text:
             print(f"📝 Heard: {text}")
